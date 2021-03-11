@@ -74,7 +74,19 @@ server.put("/api/users/:id", async (req, res) => {
   }
 });
 
+server.patch('/api/users/:id', async(req, res) = {
+    
+})
+
 // [Delete] remove
+server.remove('/api/users/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const users = await User.remove(id);
+    } catch (error) {
+        res.json(users)
+    }
+})
 
 // expose server
 module.exports = server; // EXPORT YOUR SERVER instead of {}
