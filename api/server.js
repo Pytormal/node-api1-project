@@ -8,5 +8,23 @@ const server = express()
 // global middleware
 server.use(express.json)
 
-// export server
+
+////////// end points //////////
+
+// [Get]
+
+// [Get]:id
+
+// [Get] all
+
+// [Post] create
+
+// [Put] update
+
+// [Delete] remove
+
+
+
+
+// expose server
 module.exports = server; // EXPORT YOUR SERVER instead of {}
