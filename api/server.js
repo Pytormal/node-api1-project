@@ -58,6 +58,21 @@ server.post("/api/users", async (req, res) => {
 });
 
 // [Put] update
+server.put("/api/users/:id", async (req, res) => {
+  const { id } = req.params;
+  const users = req.body;
+  try {
+    const update = await User.update(id, users);
+    if (users) {
+      res.json(update);
+    } else {
+      res.status(400).json({ error: error });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error });
+  }
+});
 
 // [Delete] remove
 
