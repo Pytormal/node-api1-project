@@ -41,6 +41,21 @@ server.get("/api/users", async (req, res) => {
 });
 
 // [Post] create
+server.post("/api/users", async (req, res) => {
+  const users = req.body;
+
+  if (!users.name || !users.bio) {
+    res.status(400).json({ message: "user name and bio required" });
+  } else {
+    try {
+      const newUser = await User.insert(users);
+      res.status(200).json(newUser);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: error });
+    }
+  }
+});
 
 // [Put] update
 
