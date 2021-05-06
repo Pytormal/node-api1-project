@@ -2,12 +2,13 @@
 const express = require("express");
 
 const server = express();
-const userRouter = require('./users/users-router')
+server.use(express.json());
 
-// server.use('/api/users', userRouter)
+const userRouter = require("./users/users-router");
+
+server.use("/api/users", userRouter);
 
 server.use((err, req, res, next) => {
-  
   server.get("/", (req, res) => {
     res.json({ api: "up" });
   });
